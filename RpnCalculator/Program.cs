@@ -37,6 +37,15 @@ namespace RpnCalculator
                         case "pr":
                             PrintStack();
                             break;
+                        case "ph":
+                            PrintStack(16);
+                            break;
+                        case "pb":
+                            PrintStack(2);
+                            break;
+                        case "po":
+                            PrintStack(8);
+                            break;
                         case "help":
                         case "h":
                             PrintHelp();
@@ -144,13 +153,13 @@ namespace RpnCalculator
             return value;
         }
 
-        static void PrintStack()
+        static void PrintStack(int b = 10)
         {
             if (StackIndex > 0)
             {
                 for (int i = 0; i < StackIndex; i++)
                 {
-                    Console.WriteLine(string.Format("[{0}] {1}", i, Stack[i].ToString()));
+                    Console.WriteLine("[{0}] {1}", i, Convert.ToString((int)Stack[i], b));
                 }
             }
             else
